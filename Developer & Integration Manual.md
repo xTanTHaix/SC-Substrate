@@ -17,10 +17,10 @@ The **SC-Substrate (Hyper-Strata Sovereign Computational Substrate)** is a prova
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                   SC-Substrate v1.0 CORE PILLARS                                   │
+│                                   SC-Substrate v1.0 CORE PILLARS                                 │
 ├──────────────────────────────────────────────────────────────────────────────────────────────────┤
-│ 1. Unified Geometric & Symbolic Core : Arbitrary-Precision Algebra, Cl_{p,q,r}, D-Modules, F5   │
-│ 2. Certified Enclosures Everywhere   : Arb-Style Ball Arithmetic [m ± r] & Cascading Promotion │
+│ 1. Unified Geometric & Symbolic Core : Arbitrary-Precision Algebra, Cl_{p,q,r}, D-Modules, F5    │
+│ 2. Certified Enclosures Everywhere   : Arb-Style Ball Arithmetic [m ± r] & Cascading Promotion   │
 │ 3. Heterogeneous Co-Design Fabric    : Morton Z-GEMM, Intel AMX, ARM SME2, RISC-V RVV, SPIR-V    │
 │ 4. Structure-Preserving Solvers      : Symplectic Manifold DAE, CPTP Lindblad, DEC/FEEC, WENO-Z  │
 │ 5. Universal Deterministic Wasm Core : Bit-Exact Cross-Language Zero-Copy Substrate (Flat C-ABI) │
