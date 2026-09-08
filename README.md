@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ SC-Substrate MASTER v1.0 ⚡
+# 💎 SC-Substrate MASTER v1.0 💎
 ### *Hyper-Strata Sovereign Computational Substrate*
 **Universal Bit-Exact, Arbitrary-Precision, Provably Bounded Mathematical Engine**
 
