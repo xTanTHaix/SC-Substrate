@@ -1,0 +1,10 @@
+[package]
+name = "sc-cas-numeric"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+sc-cas-core = { path = "../sc-cas-core" }
+sc-cas-types = { path = "../sc-cas-types" }

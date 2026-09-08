@@ -1,0 +1,19 @@
+[package]
+name = "sc-cas-rigor-suite"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+sc-cas-core = { path = "../sc-cas-core" }
+sc-cas-types = { path = "../sc-cas-types" }
+sc-cas-symbolic = { path = "../sc-cas-symbolic" }
+sc-cas-numeric = { path = "../sc-cas-numeric" }
+sc-cas-solvers = { path = "../sc-cas-solvers" }
+sc-cas-tensor = { path = "../sc-cas-tensor" }
+sc-cas-neural = { path = "../sc-cas-neural" }
+sc-cas-jit = { path = "../sc-cas-jit" }
+sc-cas-verify = { path = "../sc-cas-verify" }
+sc-cas-wasm = { path = "../sc-cas-wasm" }
+blake3 = { workspace = true }

@@ -1,0 +1,33 @@
+[workspace]
+members = [
+    "crates/sc-cas-core",
+    "crates/sc-cas-types",
+    "crates/sc-cas-symbolic",
+    "crates/sc-cas-numeric",
+    "crates/sc-cas-solvers",
+    "crates/sc-cas-tensor",
+    "crates/sc-cas-neural",
+    "crates/sc-cas-jit",
+    "crates/sc-cas-verify",
+    "crates/sc-cas-wasm",
+    "crates/sc-cas-rigor-suite",
+]
+resolver = "2"
+
+[workspace.package]
+version = "1.0.0"
+edition = "2021"
+authors = ["xTanTHaix & Styles <engineering@sovereign-cas.org>"]
+license = "BSL-1.1"
+
+[workspace.dependencies]
+blake3 = { version = "1.5", default-features = false }
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+overflow-checks = true
+debug = 1
+strip = "none"

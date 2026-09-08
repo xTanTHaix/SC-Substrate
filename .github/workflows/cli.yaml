@@ -1,0 +1,184 @@
+name: SC-Substrate CI & Rigorous Verification Gate
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  CARGO_TERM_COLOR: always
+  RUST_BACKTRACE: 1
+
+jobs:
+  # ----------------------------------------------------------------------------
+  # 1. Private Asset Leak Guard (.md/ Local Archive)
+  # ----------------------------------------------------------------------------
+  asset-leak-guard:
+    name: Private Asset Leak Guard (.md/)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Verify .md/ Archive Is Not Tracked in Git
+        run: |
+          LEAKED_FILES=$(git ls-files .md/ 2>/dev/null || true)
+          if [ -n "$LEAKED_FILES" ]; then
+            echo "::error::CRITICAL SECURITY BREACH: Private files from .md/ are tracked in git!"
+            echo "$LEAKED_FILES"
+            exit 1
+          fi
+          echo "Verified: .md/ directory is completely quarantined and uncommitted."
+
+  # ----------------------------------------------------------------------------
+  # 2. Formatting & Static Analysis (Zero-Red CI Directives)
+  # ----------------------------------------------------------------------------
+  format-and-lint:
+    name: Formatting & Clippy Linter Gate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Stable Rust with Components
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Rust Dependency Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Enforce Formatting (rustfmt)
+        run: cargo fmt --all -- --check
+
+      - name: Enforce Strict Linting (Zero Warnings)
+        run: cargo clippy --workspace --all-targets -- -D warnings
+
+  # ----------------------------------------------------------------------------
+  # 3. Cross-Platform Workspace Tests (Ubuntu & Windows)
+  # ----------------------------------------------------------------------------
+  test-rust-matrix:
+    name: Rust Workspace 42-Test Suite (${{ matrix.os }})
+    needs: format-and-lint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Stable Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Dependency Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Run 42 Workspace Tests
+        run: cargo test --workspace --verbose
+
+  # ----------------------------------------------------------------------------
+  # 4. Universal Deterministic WebAssembly Gate
+  # ----------------------------------------------------------------------------
+  wasm-substrate-gate:
+    name: WebAssembly Kernel Compilation & Budget Check
+    needs: format-and-lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Rust with wasm32 Target
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+
+      - name: Rust Dependency Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Check wasm32 Target
+        run: cargo check --target wasm32-unknown-unknown -p sc-cas-wasm
+
+      - name: Build Optimized Release Wasm Binary
+        run: cargo build --release --target wasm32-unknown-unknown -p sc-cas-wasm
+
+      - name: Verify Binary Size Under 4.5 MB Budget
+        run: |
+          WASM_PATH="target/wasm32-unknown-unknown/release/sc_cas_wasm.wasm"
+          FILE_SIZE=$(stat -c %s "$WASM_PATH")
+          echo "Compiled Wasm Size: $FILE_SIZE bytes ($(( FILE_SIZE / 1024 )) KB)"
+          MAX_BUDGET=4718592
+          if [ "$FILE_SIZE" -gt "$MAX_BUDGET" ]; then
+            echo "::error::Wasm binary exceeds 4.5 MB budget ($FILE_SIZE > $MAX_BUDGET bytes)"
+            exit 1
+          fi
+          echo "Wasm binary passes size budget."
+
+  # ----------------------------------------------------------------------------
+  # 5. Hardcore Rigor & Stress Gate
+  # ----------------------------------------------------------------------------
+  hardcore-rigor-stress:
+    name: Longevity & Adversarial Stress Suites
+    needs: test-rust-matrix
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Stable Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Rust Dependency Cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: 50,000-Cycle ALT Zero-Leak Longevity Test
+        run: cargo test -p sc-cas-wasm --test alt_longevity
+
+      - name: 10,000-Cycle Bit-Exact Determinism Replay Test
+        run: cargo test -p sc-cas-wasm --test determinism_10k
+
+      - name: 100,000-Step Symplectic Energy Stability Test
+        run: cargo test -p sc-cas-rigor-suite --test extended_symplectic_stability
+
+      - name: 500-Iteration PQC Signature Tamper Rejection Test
+        run: cargo test -p sc-cas-rigor-suite --test pqc_signature_tamper_fuzz
+
+      - name: 1,000-Interval DeepPoly Relaxation Soundness Test
+        run: cargo test -p sc-cas-rigor-suite --test soundness_deeppoly_relaxation
+
+  # ----------------------------------------------------------------------------
+  # 6. Polyglot Client SDK Gate
+  # ----------------------------------------------------------------------------
+  polyglot-clients:
+    name: Polyglot Client SDK Syntax & Compilation Gate
+    needs: format-and-lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Audit TypeScript Client
+        working-directory: clients/typescript
+        run: |
+          npx -p typescript tsc --noEmit
+
+      - name: Audit Python Client Syntax
+        run: |
+          python -m py_compile clients/python/sc_cas_wasm/__init__.py

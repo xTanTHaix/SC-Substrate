@@ -1,0 +1,9 @@
+[package]
+name = "sc-cas-types"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+sc-cas-core = { path = "../sc-cas-core" }

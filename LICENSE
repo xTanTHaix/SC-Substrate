@@ -1,0 +1,70 @@
+Business Source License 1.1
+
+Parameters:
+
+Licensor:
+    xTanTHaix
+
+Licensed Work:
+    SC-Substrate MASTER v1.0 (Hyper-Strata Sovereign Computational Substrate)
+    and all associated core crates, headers, bindings, and documentation
+    contained in this repository.
+
+Additional Use Grant:
+    1. Personal & Non-Commercial Grant:
+       You may freely copy, modify, distribute, integrate, compile, and create
+       derivative works of the Licensed Work for any personal, educational,
+       academic research, non-profit, or non-commercial evaluation purposes
+       completely free of charge.
+
+    2. Commercial Use Restriction:
+       Any deployment, execution, embedding, or integration of the Licensed Work
+       (in source or binary format) within a commercial product, SaaS offering,
+       for-profit enterprise infrastructure, proprietary software distribution,
+       or fee-generating service is STRICTLY PROHIBITED unless a valid Commercial
+       Lifetime License has been purchased.
+
+    3. Commercial License Acquisition ($8.20 USD Perpetual Buyout):
+       Commercial deployment rights are granted upon a one-time perpetual purchase
+       of $8.20 USD via the official Ko-fi store:
+       https://ko-fi.com/xtanthaix/shop
+       Upon purchase, a verified Ko-fi Order/Transaction ID certifies the license.
+
+Change Date:
+    2030-01-01
+
+Change License:
+    Apache License, Version 2.0
+
+
+Terms of the Business Source License 1.1:
+
+The Licensor hereby grants you the right to copy, modify, create derivative
+works, redistribute, and make non-production / non-commercial use of the
+Licensed Work, subject to the terms and conditions of this License and the
+Additional Use Grant specified above.
+
+You may not use the Licensed Work in a commercial production environment
+or for commercial purposes without purchasing a commercial license from the
+Licensor as specified in the Additional Use Grant.
+
+Effective on the Change Date, or the fourth anniversary of the first publicly
+available distribution of a specific version of the Licensed Work under this
+License, whichever is earlier, the Licensor hereby grants you rights under the
+terms of the Change License, and the terms of this License are replaced by the
+licenses granted under the Change License.
+
+See the Change License for the specific language governing permissions and
+limitations under the Change License.
+
+To the extent that you create derivative works of the Licensed Work, you must
+distribute the derivative works under the terms of this Business Source License 1.1,
+including this exact preamble, Additional Use Grant, and Change Date.
+
+DISCLAIMER OF WARRANTY:
+THE LICENSED WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE LICENSOR OR
+CONTRIBUTORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE LICENSED WORK OR THE USE OR OTHER DEALINGS IN THE LICENSED WORK.
