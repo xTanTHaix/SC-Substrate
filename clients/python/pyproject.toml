@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sc-cas-wasm"
+version = "1.0.0"
+description = "Universal Deterministic Python Client for SC-Substrate Sovereign Substrate"
+readme = "README.md"
+authors = [{ name = "xTanTHaix & Styles" }]
+license = { text = "Apache-2.0" }
+dependencies = [
+    "wasmtime>=14.0.0",
+    "numpy>=1.20.0"
+]

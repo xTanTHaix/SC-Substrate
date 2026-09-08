@@ -1,0 +1,11 @@
+[package]
+name = "sc-cas-verify"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+sc-cas-core = { path = "../sc-cas-core" }
+sc-cas-types = { path = "../sc-cas-types" }
+blake3 = { workspace = true }

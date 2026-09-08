@@ -1,0 +1,17 @@
+{
+  "name": "@sc-cas/wasm",
+  "version": "1.0.0",
+  "description": "Universal Deterministic WebAssembly Client for SC-Substrate Sovereign Substrate",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/client.test.js"
+  },
+  "keywords": ["cas", "wasm", "symbolic", "numerical", "deterministic"],
+  "author": "xTanTHaix & Styles",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

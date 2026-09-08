@@ -1,0 +1,126 @@
+# ==============================================================================
+# SC-Substrate MASTER v1.0 — Comprehensive Git Ignore Configuration
+# ==============================================================================
+
+# --- Build Targets & Local Archives (xTanTHaix Configuration) ---
+target/
+.md/
+
+# --- Rust Compilation & Cargo Artifacts ---
+*.rs.bk
+debug/
+release/
+*.rlib
+*.rmeta
+
+# --- Polyglot Client SDKs Artifacts ---
+
+# Node.js & TypeScript (clients/typescript)
+node_modules/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tsbuildinfo
+
+# Python (clients/python)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.mypy_cache/
+
+# Java & Kotlin JVM (clients/java)
+*.class
+*.log
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+.gradle/
+build/
+
+# C / C++ & Native Binaries (clients/c_cpp)
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.lib
+*.a
+*.pdb
+*.ilk
+
+# Go (clients/go)
+*.exe~
+
+# --- Security, Environment & Credentials ---
+.env
+.env.*
+*.pem
+*.key
+*.secret
+*.token
+*.p12
+*.pfx
+
+# --- IDEs, Editors & Workspaces ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# --- Operating System Artifacts ---
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# --- Scratch & Temporary Telemetry ---
+scratch/
+logs/
+*.log
+*.tmp
+*.temp
