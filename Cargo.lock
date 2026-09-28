@@ -66,22 +66,29 @@ checksum = "3eaf3ede3fee6db1a4c2ee091bf8a8b4dccdc6d17f656fb07896ee72867612f2"
 
 [[package]]
 name = "sc-cas-core"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "blake3",
 ]
 
 [[package]]
 name = "sc-cas-jit"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sc-cas-core",
  "sc-cas-types",
 ]
 
 [[package]]
+name = "sc-cas-layout"
+version = "1.1.0"
+dependencies = [
+ "sc-cas-core",
+]
+
+[[package]]
 name = "sc-cas-neural"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sc-cas-core",
  "sc-cas-types",
@@ -89,15 +96,22 @@ dependencies = [
 
 [[package]]
 name = "sc-cas-numeric"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sc-cas-core",
  "sc-cas-types",
 ]
 
 [[package]]
+name = "sc-cas-rates"
+version = "1.1.0"
+dependencies = [
+ "sc-cas-core",
+]
+
+[[package]]
 name = "sc-cas-rigor-suite"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "blake3",
  "sc-cas-core",
@@ -114,7 +128,7 @@ dependencies = [
 
 [[package]]
 name = "sc-cas-solvers"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sc-cas-core",
  "sc-cas-types",
@@ -122,15 +136,22 @@ dependencies = [
 
 [[package]]
 name = "sc-cas-symbolic"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sc-cas-core",
  "sc-cas-types",
 ]
 
 [[package]]
+name = "sc-cas-sysperf"
+version = "1.1.0"
+dependencies = [
+ "sc-cas-types",
+]
+
+[[package]]
 name = "sc-cas-tensor"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "blake3",
  "sc-cas-core",
@@ -139,14 +160,14 @@ dependencies = [
 
 [[package]]
 name = "sc-cas-types"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "sc-cas-core",
 ]
 
 [[package]]
 name = "sc-cas-verify"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "blake3",
  "sc-cas-core",
@@ -155,7 +176,7 @@ dependencies = [
 
 [[package]]
 name = "sc-cas-wasm"
-version = "1.0.0"
+version = "1.1.0"
 dependencies = [
  "blake3",
  "sc-cas-core",

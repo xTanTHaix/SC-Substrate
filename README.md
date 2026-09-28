@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ SC-Substrate MASTER v1.0 ⚡
+# ⚡ SC-Substrate MASTER v1.1.0 ⚡
 ### *Hyper-Strata Sovereign Computational Substrate*
 **Universal Bit-Exact, Arbitrary-Precision, Provably Bounded Mathematical Engine**
 
@@ -126,6 +126,21 @@
   - [x] **Go**: Pure Go client powered by `wazero` (Zero CGO)
   - [x] **C / C++**: `sc_cas.h` standard single-header wrapper
   - [x] **Java / Kotlin**: Java 21+ FFM & `DirectByteBuffer` client
+- [x] **v1.1.0 — Developer Workload Modules** *(new in v1.1.0)*
+  - [x] **`sc-cas/sysperf`** — Certified SLA, Latency Enclosure & Capacity Planning
+    - [x] End-to-End Latency Bound propagation across microservice hops via Arb ball arithmetic `[T_mean ± δ]`
+    - [x] Queueing Theory: Little's Law ($L = \lambda W$) & M/M/c capacity explosion threshold
+    - [x] SLO / Error Budget: Uptime ratio ($99.99\%$) vs permissible downtime window
+    - [x] Laplace noise injection on APM metrics/traces via `sc-cas/privacy` before external export
+  - [x] **`sc-cas/layout`** — Memory Layout, Cache Alignment & Buffer Bound Safety
+    - [x] Struct packing & padding optimization for false-sharing avoidance on 64-byte cache lines
+    - [x] Static buffer slicing & modular ring-buffer index addressing
+    - [x] Index bounds proof: formal verification that $f(i)$ never escapes memory segment $[0, N-1]$
+    - [x] RNS/CRT-accelerated offset & buffer rotation via `sc-cas/rns`
+  - [x] **`sc-cas/rates`** — Lossless Rate Limiting & Token Bucket Sizing
+    - [x] Deterministic token bucket: lossless rational fill rate $R = \frac{N}{T}$ eliminating float rounding drift
+    - [x] Leaky bucket burst capacity & drain rate sizing
+    - [x] JIT-compiled rate-limiting rules via `sc-cas/jit` for zero hot-path overhead
 
 </details>
 
@@ -393,16 +408,62 @@ cargo build --release --target wasm32-unknown-unknown -p sc-cas-wasm
 
 ---
 
+## 📋 Changelog
+
+<details>
+<summary>📦 <strong>v1.1.0 — Developer Workload Modules</strong> <code>2026-09-28</code></summary>
+
+<br>
+
+Three new developer-focused computation modules land in v1.1.0, targeting the real-world workloads of Systems Engineers and Backend Developers. Each module is a thin orchestration layer composing existing certified crates — no new unsafe code, zero cycle-count regressions.
+
+| Module | Role | Composing Crates |
+| :--- | :--- | :--- |
+| **`sc-cas/sysperf`** | Certified SLA, Latency Enclosure & Capacity Planning | `sc-cas/numerics`, `sc-cas/verifier`, `sc-cas/privacy` |
+| **`sc-cas/layout`** | Memory Layout, Cache Alignment & Buffer Bound Safety | `sc-cas/rns`, `sc-cas/core`, `sc-cas/domain` |
+| **`sc-cas/rates`** | Lossless Rate Limiting & Token Bucket Sizing | `sc-cas/core` (Rational), `sc-cas/jit` |
+
+**`sc-cas/sysperf` — Highlights:**
+- End-to-End Latency Bound: propagates Arb ball jitter $[T_{\text{mean}} \pm \delta]$ across entire microservice call chains.
+- M/M/c queue capacity explosion threshold via Little's Law ($L = \lambda W$).
+- SLO Error Budget: formal assurance that $p99/p99.9$ tail latency never breaches SLA contracts.
+- Differential privacy: Laplace noise injected on metrics/traces via `sc-cas/privacy` before APM egress.
+
+**`sc-cas/layout` — Highlights:**
+- Struct padding optimizer eliminating false sharing on 64-byte CPU cache lines.
+- RNS/CRT-accelerated modular ring-buffer offset computation via `sc-cas/rns`.
+- Formal index bounds proof: $f(i) \in [0, N-1]$ verified at construction time — no runtime panics.
+
+**`sc-cas/rates` — Highlights:**
+- Lossless rational token fill rate $R = \frac{N}{T}$ via `sc-cas/core::Rational` — zero floating-point drift.
+- Leaky bucket burst capacity and drain rate computed from exact arithmetic.
+- Rate-limiting rule expressions JIT-compiled by `sc-cas/jit` for zero overhead in hot paths.
+
+</details>
+
+<details>
+<summary>📦 <strong>v1.0.0 — Initial Sovereign Release</strong></summary>
+
+- 13-layer monotonic crate architecture (Layers 00–12).
+- 7-Gate Non-Mutating Egress Verification Pipeline with NIST FIPS 204 ML-DSA-65 seal.
+- Polyglot SDK ecosystem: TypeScript, Python, Go, C/C++, Java/Kotlin.
+- 42/42 tests passing, 0 Clippy warnings, 97.60/100.0 Audit Score.
+
+</details>
+
+---
+
 ## 💼 Licensing & Commercial Acquisition
 
 * **Personal, Educational & Academic Use:** **100% Free** under the [Business Source License 1.1 (`BSL-1.1`)](./LICENSE). You are granted full rights to copy, modify, compile, and build derivative works for non-commercial purposes.
 * **Commercial Deployment:** Embedding or deploying SC-Substrate within commercial products, SaaS platforms, or proprietary software requires a **Commercial Lifetime License ($8.20 USD one-time buyout)**.
 * **Commercial License Purchase:** https://ko-fi.com/xtanthaix
 
+
 ---
 <div align="center">
 
 *Architected by **xTanTHaix** (Grandmaster Architect) & **Styles** (Chief Systems Engineer).*  
-*SC-Substrate MASTER v1.0 — Sovereign Mathematical Substrate*
+*SC-Substrate MASTER v1.1.0 — Sovereign Mathematical Substrate*
 
 </div>
