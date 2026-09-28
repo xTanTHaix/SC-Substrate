@@ -1,0 +1,10 @@
+[package]
+name = "sc-cas-layout"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Memory Layout, Cache Alignment & Buffer Bound Safety — v1.1.0 Developer Workload Module"
+
+[dependencies]
+sc-cas-core = { path = "../sc-cas-core" }

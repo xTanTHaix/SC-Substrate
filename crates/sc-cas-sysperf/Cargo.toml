@@ -1,0 +1,10 @@
+[package]
+name = "sc-cas-sysperf"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Certified SLA, Latency Enclosure & Capacity Planning — v1.1.0 Developer Workload Module"
+
+[dependencies]
+sc-cas-types = { path = "../sc-cas-types" }

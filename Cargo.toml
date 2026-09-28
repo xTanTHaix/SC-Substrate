@@ -11,11 +11,14 @@ members = [
     "crates/sc-cas-verify",
     "crates/sc-cas-wasm",
     "crates/sc-cas-rigor-suite",
+    "crates/sc-cas-sysperf",
+    "crates/sc-cas-layout",
+    "crates/sc-cas-rates",
 ]
 resolver = "2"
 
 [workspace.package]
-version = "1.0.0"
+version = "1.1.0"
 edition = "2021"
 authors = ["xTanTHaix & Styles <engineering@sovereign-cas.org>"]
 license = "BSL-1.1"

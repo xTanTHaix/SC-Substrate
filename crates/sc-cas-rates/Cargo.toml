@@ -1,0 +1,10 @@
+[package]
+name = "sc-cas-rates"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+description = "Lossless Rate Limiting & Token Bucket Sizing — v1.1.0 Developer Workload Module"
+
+[dependencies]
+sc-cas-core = { path = "../sc-cas-core" }
