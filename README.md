@@ -16,7 +16,7 @@
 [![Clippy Audit](https://img.shields.io/badge/clippy-0%20warnings-brightgreen?style=for-the-badge&logo=rust&logoColor=white)](#)
 [![Audit Score](https://img.shields.io/badge/sign--off-97.60%2F100.0-2563EB?style=for-the-badge&logo=databricks&logoColor=white)](#)
 [![PQC Security](https://img.shields.io/badge/security-FIPS%20204%20ML--DSA--65-7C3AED?style=for-the-badge&logo=vault&logoColor=white)](#)
-[![License](https://img.shields.io/badge/license-BSL--1.1-F59E0B?style=for-the-badge&logo=googledocs&logoColor=white)](LICENSE)
+[![License](https://img.shields.io/badge/license-Apache--2.0-059669?style=for-the-badge&logo=apache&logoColor=white)](LICENSE)
 
 <br>
 
@@ -453,11 +453,10 @@ Three new developer-focused computation modules land in v1.1.0, targeting the re
 
 ---
 
-## 💼 Licensing & Commercial Acquisition
+## 📜 License & Community Support
 
-* **Personal, Educational & Academic Use:** **100% Free** under the [Business Source License 1.1 (`BSL-1.1`)](./LICENSE). You are granted full rights to copy, modify, compile, and build derivative works for non-commercial purposes.
-* **Commercial Deployment:** Embedding or deploying SC-Substrate within commercial products, SaaS platforms, or proprietary software requires a **Commercial Lifetime License ($8.20 USD one-time buyout)**.
-* **Commercial License Purchase:** https://ko-fi.com/xtanthaix
+* **Permissive Open-Source:** 100% Free under the [Apache License, Version 2.0 (Apache-2.0)](./LICENSE) for personal, academic, open-source, and commercial production use.
+* **Support & Sponsorship:** If SC-Substrate powers your infrastructure, feel free to support ongoing research and maintenance via [Ko-fi](https://ko-fi.com/xtanthaix).
 
 
 ---
