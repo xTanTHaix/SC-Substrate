@@ -21,7 +21,7 @@ resolver = "2"
 version = "1.1.0"
 edition = "2021"
 authors = ["xTanTHaix & Styles <engineering@sovereign-cas.org>"]
-license = "BSL-1.1"
+license = "Apache-2.0"
 
 [workspace.dependencies]
 blake3 = { version = "1.5", default-features = false }
